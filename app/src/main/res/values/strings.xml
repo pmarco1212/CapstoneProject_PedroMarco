@@ -1,0 +1,154 @@
+<resources>
+    <!--++++++++++++++++++++++++++++++++++++++++++ Strings with not translation ++++++++++++++++++++++++++++++++++++-->
+    <!-- APP NAME -->
+    <string name="app_name" translatable="false">EventApp</string>
+
+    <!-- Facebook app id -->
+    <string name="facebook_app_id" translatable="false">2110833692481939</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2110833692481939</string>
+
+    <!-- Twitter keys -->
+    <string name="com.twitter.sdk.android.CONSUMER_KEY" translatable="false">dfjAjZjoTtFG9VMGqFn3c5Zdw</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET" translatable="false">rPtP391ExAhoNFr9SBDKmTP1tzVskgmsLO8QXv7YzHOfJ4fN5w</string>
+
+    <!-- Date format for the date of the events -->
+    <string name="date_format" translatable="false">dd/MM/yyyy</string>
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+    <!-- Login -->
+    <string name="login_etEmail_hint">Email</string>
+    <string name="login_etPassword_hint">Password</string>
+    <string name="checkbox_remember_me">Remember me</string>
+    <string name="button_login">Log in</string>
+    <string name="login.error.message.signin">Error trying to singIn %s</string>
+    <string name="login.error.message.signup">Error registering new user %s</string>
+    <string name="login.notice.message.useradded">User was successfully registered</string>
+    <string name="button_register">Register</string>
+    <string name="facebook_login_error">Error login with Facebook</string>
+    <string name="twitter_login_error">Error login with Twitter</string>
+    <string name="login.error.facebook">Error login with Facebook. Try another option.</string>
+
+    <!-- Main -->
+    <string name="main.menu.action.logout">Logout</string>
+    <string name="main.menu.action.settings">Settings</string>
+    <string name="main.menu.action.createnewevent">Create new event</string>
+    <string name="main.search.hint">Search for keywords</string>
+    <string name="main.search.button.text">Search</string>
+    <string name="main.tab.name.nearby">NEARBY</string>
+    <string name="main.tab.name.search">SEARCH</string>
+    <string name="main.tab.name.favourites">FAVOURITES</string>
+    <string name="nearby.no.events.found">No events found.</string>
+    <string name="favourites.no.events">No events in favourites.</string>
+
+    <!-- New User -->
+    <string name="newuser.errormessage.emptyfield">Error: Some fields are empty.</string>
+    <string name="newuser.toast.usercreated">User created sucessfully</string>
+    <string name="newuser.error.username.already.in.use">That username is already in use. Please choose a different one.</string>
+    <string name="newuser.actionbar.title">New EventApp user</string>
+    <string name="newuser.btn.changepicture">Change picture</string>
+    <string name="newuser.error.image.invalid">Please select a valid picture.</string>
+    <string name="new.user.tv.username">Username</string>
+    <string name="new.user.et.username.hint">Choose your username</string>
+    <string name="new.user.tv.firstname">First name</string>
+    <string name="new.user.et.firsname.hint">Your First Name</string>
+    <string name="new.user.tv.lastname">Last Name</string>
+    <string name="new.user.et.lastname.hint">Your Last Name</string>
+    <string name="new.user.tv.description">Description</string>
+    <string name="new.user.et.description.hint">Write something about you</string>
+    <string name="new.user.button.select.picture">Select a profile picture</string>
+
+    <!-- Search -->
+    <string name="search.minimum.distance" translatable="false"><![CDATA[< 5km]]></string>
+    <string name="search.tv.any.distance">Any</string>
+    <string name="search.tv.category">- Category:</string>
+    <string name="search.ettodate.hint">To</string>
+    <string name="search.etfromdate.hint">From</string>
+    <string name="search.tv.date">- Date:</string>
+    <string name="search.tv.distance">- Distance:</string>
+    <string name="search.tv.no.events.found">No Events found with this criteria. Try another search.</string>
+    <string name="search.toast.error">There was an error. Try again.</string>
+    <string name="main.search.showing.results">Showing search results:</string>
+    <string name="search.close.button">Close</string>
+
+    <!-- Create Event -->
+    <string name="create.event.menu.actioncreate">Create</string>
+    <string name="create.event.actionbar.name">Create an Event</string>
+    <string name="create.event.button.selectpicture">Browse</string>
+    <string name="create.event.tv.eventpicture">Event picture:</string>
+    <string name="create.event.location.et.hint">Select the location of your event</string>
+    <string name="create.event.location.tv">Location:</string>
+    <string name="create.event.date.et.hint">Select start date</string>
+    <string name="create.event.date.tv">Date and time:</string>
+    <string name="create.event.description.et.hint">Information about your event</string>
+    <string name="create.event.description.tv">Description:</string>
+    <string name="create.event.name.et.hint">Name of your event</string>
+    <string name="create.event.name.tv">Event name:</string>
+    <string name="create.event.time.et.hint">Set time</string>
+    <string name="create.event.maxpeople.tv">Maximum people:</string>
+    <string name="create.event.btn.change.picture">Change picture</string>
+    <string name="create.event.error.invalid.name">Please set a valid event name</string>
+    <string name="create_event_error_invalid_description">Please set a valid description</string>
+    <string name="create_event_error_invalid_date">Please select a valid date</string>
+    <string name="create_event_error_invalid_time">Please set a time for the event</string>
+    <string name="create_event_error_invalid_location">Please select a valid location</string>
+    <string name="create_event_error_invalid_picture">Please select a valid picture</string>
+    <string name="create.event.database.error">There was an error while creatign the event.</string>
+    <string name="image.cropper.error">Error cropping the image.</string>
+    <string name="create.event.event.created.success">Event created!</string>
+    <string name="create.event.tv.category">Category:</string>
+    <string name="create.event.max.people">(leave blank = no limit)</string>
+
+
+    <!-- Event Details -->
+    <string name="event.details.datetime.tv">When:</string>
+    <string name="event.details.tv.where">Where:</string>
+    <string name="dummy" translatable="false">(1.3 Km)</string>
+    <string name="event.details.tv.people">People:</string>
+    <string name="event.details.btn.imhere">I\'m here</string>
+    <string name="event.details.btn.assist">Assist</string>
+    <string name="event.details.tv.description">Description:</string>
+    <string name="event.details.tv.createdby">Created By:</string>
+    <string name="event.details.tv.comments">Comments:</string>
+    <string name="event.details.tv.nocomments">There are no comments in this event yet.</string>
+    <string name="event.details.et.comment.hint">Write a comment...</string>
+    <string name="event.details.btn.send.comment">Send</string>
+    <string name="event.details.favourites.added">Event added to Favourites</string>
+    <string name="event.details.favourites.removed">Event removed from Favourites</string>
+    <string name="event.details.favourites.error">Error while setting favourite</string>
+    <string name="event.details.assisting.error">Error when setting the assistance</string>
+    <string name="event.details.btn.assisting">Assiting</string>
+    <string name="event.details.error.event.full">Sorry, this event is already full</string>
+    <string name="event.details.location.invalid">You must be in the Event location to rate it</string>
+    <string name="event.details.permission.denied">Cannot access this feature without acepting the permission</string>
+    <string name="event.details.rated.success">Event rated successfully!</string>
+    <string name="event.details.rating.error">There was an error while rating, try again</string>
+    <string name="event_details_btn_rated">Rated!</string>
+    <string name="event.details.need.location">Please enable Location service first.</string>
+
+    <!-- User Details -->
+    <string name="user.details.tv.aboutme">About me:</string>
+    <string name="user.details.tv.eventassisted">Events assisted:</string>
+    <string name="user.details.tv.eventscreated">Events created:</string>
+    <string name="user.details.tv.rating">Average rating:</string>
+    <string name="user.details.tv.name">Name:</string>
+    <string name="user.details.error">Error getting the user details</string>
+
+    <!-- Settings -->
+    <string name="settings.tv.notifications">Notifications</string>
+    <string name="settings.edit.user.profile">Edit User Profile</string>
+    <string name="settings.toast.notifications.off">Notifications set to OFF</string>
+    <string name="settings.toas.notifications.on">Notifications set to ON</string>
+    <string name="settings.actionbar.name">Settings</string>
+    <string name="settings.notifications.require.version">Notifications require minimum version: Lollipop</string>
+
+    <!-- Edit User  -->
+    <string name="edit.user.actionbar.name">Edit User Profile</string>
+    <string name="edit.user.toast.update.success">User updated successfully</string>
+    <string name="edit.user.error">Error obtaining user. Try again.</string>
+    <string name="menu.user.details.done">DONE</string>
+    <string name="event.details.rate.event">Rate this Event:</string>
+    <string name="event.details.rate.positive">Rate</string>
+    <string name="event.details.rate.negative">Not now</string>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tvNotificationSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings.tv.notifications"
+        android:textSize="@dimen/settings.tv.textsize"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/tw__composer_black"
+        android:padding="@dimen/activity_big_margin"/>
+
+    <Switch
+        android:id="@+id/switchNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvNotificationSettings"
+        android:layout_toEndOf="@id/tvNotificationSettings"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/activity_big_margin"/>
+
+    <View
+        android:layout_below="@+id/tvNotificationSettings"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/separator_size"
+        android:layout_marginBottom="@dimen/margin_5dp"
+        android:background="@color/grey_separator" />
+
+    <TextView
+        android:id="@+id/tvEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings.edit.user.profile"
+        android:textSize="@dimen/settings.tv.textsize"
+        android:layout_below="@id/tvNotificationSettings"
+        android:textColor="@color/tw__composer_black"
+        android:padding="@dimen/activity_big_margin"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/separator_size"
+        android:layout_marginBottom="@dimen/margin_5dp"
+        android:background="@color/grey_separator"
+        android:layout_below="@id/tvEditProfile"/>
+</RelativeLayout>

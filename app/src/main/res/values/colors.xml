@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff5c33</color>
+    <color name="colorPrimaryDark">#ff3300</color>
+    <color name="colorAccent">#4744FF</color>
+    <color name="grey_separator">#90909090</color>
+    <color name="event_list_item_people_background">#50000000</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey">#C0C0C0</color>
+    <color name="green">#00FF00</color>
+    <color name="orange">#FFA500</color>
+    <color name="pink">#FF0080</color>
+    <color name="water_green">#437b74</color>
+    <color name="blue">#4744FF</color>
+</resources>

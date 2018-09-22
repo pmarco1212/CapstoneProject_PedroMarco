@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerCategoryItems">
+        <item>Leisure</item>
+        <item>Sports</item>
+        <item>Culture</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="spinnerCategoryItemsSearch">
+        <item>Any</item>
+        <item>Sports</item>
+        <item>Leisure</item>
+        <item>Culture</item>
+        <item>Others</item>
+    </string-array>
+</resources>

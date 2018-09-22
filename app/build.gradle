@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.capstoneproject.pedromarco.eventapp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "CLOUDINARY_URL", project.property('CLOUDINARY_URL')
+            resValue "string", "GOOGLE_PLACES_API_KEY", project.property('GOOGLE_PLACES_API_KEY')
+            resValue "string", "ALGOLIA_API_KEY", project.property('ALGOLIA_API_KEY')
+            resValue "string", "ALGOLIA_APLICATION_ID", project.property('ALGOLIA_APLICATION_ID')
+        }
+
+        debug {
+            resValue "string", "CLOUDINARY_URL", project.property('CLOUDINARY_URL')
+            resValue "string", "GOOGLE_PLACES_API_KEY", project.property('GOOGLE_PLACES_API_KEY')
+            resValue "string", "ALGOLIA_API_KEY", project.property('ALGOLIA_API_KEY')
+            resValue "string", "ALGOLIA_APLICATION_ID", project.property('ALGOLIA_APLICATION_ID')
+        }
+
+    }
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookVersion"
+    implementation "com.twitter.sdk.android:twitter:$rootProject.ext.twitterVersion"
+    annotationProcessor "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    implementation 'com.github.delight-im:Android-SimpleLocation:v1.0.1'
+
+    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+
+    implementation "de.hdodenhof:circleimageview:$rootProject.ext.circleImageViewVersion"
+    implementation "com.cloudinary:cloudinary-android:$rootProject.ext.cloudinaryVersion"
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+    implementation "org.greenrobot:eventbus:$rootProject.ext.eventbusVersion"
+
+    implementation "com.firebase:firebase-client-android:$rootProject.ext.firebaseClientVersion"
+    implementation "com.google.firebase:firebase-database:$rootProject.ext.firebaseVersion"
+    implementation "com.google.firebase:firebase-auth:$rootProject.ext.firebaseVersion"
+    implementation "com.google.android.gms:play-services:$rootProject.ext.googlePlacesVersion"
+    implementation "com.google.android.gms:play-services-places:$rootProject.ext.googlePlacesVersion"
+    implementation "com.algolia:algoliasearch-android:$rootProject.ext.algoliaVersion"
+
+    implementation("com.twitter.sdk.android:twitter:$rootProject.ext.twitterVersion") {
+        transitive = true
+    }
+
+    implementation "com.theartofdev.edmodo:android-image-cropper:$rootProject.ext.imageCropperLibraryVersion"
+}

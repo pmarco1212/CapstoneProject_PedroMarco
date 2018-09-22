@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "460239239209",
+    "firebase_url": "https://eventapp-3f1a4.firebaseio.com",
+    "project_id": "eventapp-3f1a4",
+    "storage_bucket": "eventapp-3f1a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460239239209:android:3b141006c36de6d1",
+        "android_client_info": {
+          "package_name": "com.capstoneproject.pedromarco.eventapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460239239209-d2srm3efk00ekdobpccs9ta2khfu3cck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTV7-rgV7rWBa5kXfpbBNnuTYCuCE4VFk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

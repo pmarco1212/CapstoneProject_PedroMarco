@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/searchResultsBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:paddingStart="@dimen/activity_big_margin"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="@string/main.search.showing.results"
+            style="@style/shadoweffect"
+            android:gravity="center_vertical"/>
+
+        <Button
+            android:id="@+id/btnCloseSearch"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:text="@string/search.close.button"
+            android:textSize="@dimen/search.buton.close.texsize"
+            android:drawableEnd="@drawable/ic_close_red_24dp"
+            android:paddingEnd="@dimen/activity_big_margin"
+            android:paddingStart="@dimen/activity_big_margin"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/layoutNoEvents">
+        <TextView
+            android:id="@+id/tvNoResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search.tv.no.events.found"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="@dimen/search.textsize.textview"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/searchscreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_big_margin">
+
+        <LinearLayout
+            android:id="@+id/layoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.2"
+                android:hint="@string/main.search.hint"
+                android:shadowColor="@color/tw__composer_black" />
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/ic_search_black_24dp"
+                android:text="@string/main.search.button.text" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutSearch"
+            android:layout_marginTop="@dimen/margin_search_top"
+            android:text="@string/search.tv.distance"
+            android:textColor="@color/tw__composer_black"
+            android:textSize="@dimen/search.tv.textsize" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutSeekbar"
+            android:layout_toEndOf="@+id/textView"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_alignTop="@+id/textView"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/search.tv.any.distance"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/search.tv.textsize" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:max="100"
+                android:progress="100" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutSeekbar"
+            android:layout_marginTop="30dp"
+            android:text="@string/search.tv.date"
+            android:textColor="@color/tw__composer_black"
+            android:textSize="@dimen/search.tv.textsize" />
+
+
+        <EditText
+            android:id="@+id/etFromDate"
+            android:layout_width="@dimen/search.etdate.width"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tvdate"
+            android:layout_alignTop="@id/tvdate"
+            android:layout_toRightOf="@id/textView"
+            android:layout_alignBaseline="@+id/tvdate"
+            android:layout_marginLeft="@dimen/activity_big_margin"
+            android:layout_toEndOf="@id/tvdate"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="none"
+            android:longClickable="false"
+            android:hint="@string/search.etfromdate.hint" />
+
+        <EditText
+            android:id="@+id/etToDate"
+            android:layout_width="@dimen/search.etdate.width"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvdate"
+            android:layout_marginLeft="@dimen/activity_big_margin"
+            android:layout_alignBottom="@id/tvdate"
+            android:layout_alignTop="@id/tvdate"
+            android:layout_toEndOf="@+id/etFromDate"
+            android:layout_toRightOf="@+id/etFromDate"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="none"
+            android:longClickable="false"
+            android:hint="@string/search.ettodate.hint" />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvdate"
+            android:layout_marginTop="30dp"
+            android:text="@string/search.tv.category"
+            android:textColor="@color/tw__composer_black"
+            android:textSize="@dimen/search.tv.textsize" />
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tvCategory"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/textView"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/spinnerCategoryItemsSearch"/>
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvEventList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+</LinearLayout>

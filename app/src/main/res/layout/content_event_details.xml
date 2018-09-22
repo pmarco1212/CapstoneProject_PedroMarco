@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.capstoneproject.pedromarco.eventapp.eventdetails.ui.EventDetailsActivity"
+    tools:showIn="@layout/activity_event_details"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey">
+
+        <LinearLayout
+            android:id="@+id/layoutWhereWhen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_big_margin">
+
+            <LinearLayout
+                android:id="@+id/layoutDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="1dp">
+
+                <TextView
+                    android:id="@+id/tvWhen"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/event.details.datetime.tv"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/event.details.tv.textsize"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDateTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:textColor="@color/tw__composer_black"
+                    android:textSize="@dimen/event.details.tv.textsize" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/event.details.paddingtop.locationlayout">
+
+                <TextView
+                    android:id="@+id/tvWhere"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/event.details.tv.where"
+                    android:textColor="@color/tw__composer_black"
+                    android:textSize="@dimen/event.details.tv.textsize"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:id="@+id/location_llayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:srcCompat="@drawable/ic_location_blue" />
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/com_facebook_blue"
+                        android:textSize="@dimen/event.details.tv.textsize"
+                        android:textStyle="bold"
+                        android:ellipsize="end"
+                        android:maxLines="2"/>
+
+                    <TextView
+                        android:id="@+id/tvDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin3dp"
+                        android:text="@string/dummy"
+                        android:visibility="gone"
+                        android:textColor="@color/tw__composer_black"
+                        android:textSize="@dimen/event.details.tv.textsize" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutAssistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal"
+                android:layout_below="@id/layoutLocation"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvAssistance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/event.details.tv.people"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/event.details.tv.textsize"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvNumberPeople"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:textColor="@color/tw__composer_black"
+                    android:textSize="@dimen/event.details.tv.textsize" />
+                <Button
+                    android:id="@+id/btnAssist"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/event.details.btn.assist"
+                    android:background="@drawable/round_assist_button"
+                    android:textColor="@color/tw__composer_white"
+                    />
+                <Button
+                    android:id="@+id/btnImHere"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/event.details.btn.imhere"
+                    android:visibility="gone"
+                    android:background="@drawable/round_imhere_button"
+                    android:textColor="@color/tw__composer_white"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutWhereWhen"
+            android:layout_marginTop="2dp"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/activity_big_margin"
+            android:paddingRight="@dimen/activity_big_margin"
+            android:paddingTop="25dp"
+            android:text="@string/event.details.tv.description"
+            android:textColor="@color/tw__composer_black"
+            android:textSize="@dimen/event.details.tv.textsize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDescriptionContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tvDescription"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/activity_big_margin"
+            android:paddingLeft="@dimen/activity_big_margin"
+            android:paddingRight="@dimen/activity_big_margin"
+            android:paddingTop="@dimen/dimen_5dp"
+            android:textColor="@color/tw__composer_black"
+            android:textSize="@dimen/event.details.tv.textsize" />
+
+        <RelativeLayout
+            android:id="@+id/layoutCreatedBy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDescriptionContent"
+            android:layout_marginTop="@dimen/margin2dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tvCreatedBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_big_margin"
+                android:paddingRight="@dimen/activity_big_margin"
+                android:paddingTop="25dp"
+                android:text="@string/event.details.tv.createdby"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/event.details.tv.textsize"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutCreator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvCreatedBy"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/event.details.circleimageview.dimension"
+                    android:layout_height="@dimen/event.details.circleimageview.dimension"
+                    android:layout_margin="@dimen/activity_big_margin"
+                    android:src="@drawable/icon_person" />
+
+                <TextView
+                    android:id="@+id/tvCreator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/com_facebook_blue"
+                    android:textSize="@dimen/event.details.tv.creatorname.textsize" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutCreatedBy"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/activity_big_margin"
+            android:paddingRight="@dimen/activity_big_margin">
+
+            <TextView
+                android:id="@+id/tvComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="25dp"
+                android:text="@string/event.details.tv.comments"
+                android:textColor="@color/black"
+                android:textSize="@dimen/event.details.tv.textsize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNoComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvComments"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/activity_big_margin"
+                android:text="@string/event.details.tv.nocomments"
+                android:textColor="@color/tw__composer_deep_gray"
+                android:textSize="@dimen/event.details.tv.nocomments.textsize" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvComments"
+                android:layout_below="@id/tvNoComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_big_margin"
+                android:visibility="gone">
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rvComments"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etNewComments"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:cursorVisible="false"
+                    android:ems="200"
+                    android:hint="@string/event.details.et.comment.hint"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLength="300" />
+
+                <Button
+                    android:id="@+id/btnSendComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/event.details.btn.send.comment" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

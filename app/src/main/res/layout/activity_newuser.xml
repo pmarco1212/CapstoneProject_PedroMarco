@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutForm"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new.user.tv.username" />
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/new.user.et.username.hint" />
+
+    <TextView
+        android:id="@+id/tvFirstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new.user.tv.firstname" />
+
+    <EditText
+        android:id="@+id/etFirstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName|textCapSentences"
+        android:hint="@string/new.user.et.firsname.hint" />
+
+    <TextView
+        android:id="@+id/tvLastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new.user.tv.lastname" />
+
+    <EditText
+        android:id="@+id/etLastaname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName|textCapSentences"
+        android:hint="@string/new.user.et.lastname.hint"/>
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new.user.tv.description" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/new.user.et.description.hint"
+        android:inputType="textCapSentences"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfilePic"
+        android:layout_width="@dimen/newuser.imageview.height.width"
+        android:layout_height="@dimen/newuser.imageview.height.width"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/newuser.circleimageview.border"
+        app:civ_border_color="@color/black"/>
+
+    <Button
+        android:id="@+id/btnSelectPicture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new.user.button.select.picture" />
+
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone" />
+</LinearLayout>

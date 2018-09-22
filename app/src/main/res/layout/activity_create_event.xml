@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ScrollView
+        android:id="@+id/layoutForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/create.event.name.tv"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/create_event_tv_textsize" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvName"
+                android:hint="@string/create.event.name.et.hint"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:inputType="textCapSentences"/>
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etName"
+                android:layout_marginTop="@dimen/activity_big_margin"
+                android:text="@string/create.event.description.tv"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/create_event_tv_textsize" />
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvDescription"
+                android:hint="@string/create.event.description.et.hint"
+                android:inputType="textCapSentences"
+                android:maxLength="1000"/>
+
+            <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etDescription"
+                android:layout_marginTop="@dimen/activity_big_margin"
+                android:text="@string/create.event.tv.category"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/create_event_tv_textsize" />
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvCategory"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:entries="@array/spinnerCategoryItems" />
+
+            <TextView
+                android:id="@+id/tvMaxPeople"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinnerCategory"
+                android:layout_marginTop="@dimen/activity_big_margin"
+                android:text="@string/create.event.maxpeople.tv"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/create_event_tv_textsize" />
+
+            <EditText
+                android:id="@+id/etMaxPeople"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvMaxPeople"
+                android:hint="@string/create.event.max.people"
+                android:inputType="number"
+                android:maxLength="6"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etMaxPeople"
+                android:layout_marginTop="@dimen/activity_big_margin"
+                android:text="@string/create.event.date.tv"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/create_event_tv_textsize" />
+
+            <LinearLayout
+                android:id="@+id/linearLayDatetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDate">
+
+                <EditText
+                    android:id="@+id/etDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_big_margin"
+                    android:layout_marginRight="@dimen/activity_big_margin"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/create.event.date.et.hint"
+                    android:inputType="none"
+                    android:longClickable="false" />
+
+                <EditText
+                    android:id="@+id/etTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create.event.time.et.hint"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:inputType="textCapSentences"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayDatetime"
+                android:layout_marginTop="@dimen/activity_big_margin"
+                android:text="@string/create.event.location.tv"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/create_event_tv_textsize" />
+
+            <EditText
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvLocation"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/create.event.location.et.hint"
+                android:inputType="none"
+                android:longClickable="false" />
+
+            <TextView
+                android:id="@+id/tvPicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etLocation"
+                android:layout_marginTop="@dimen/activity_big_margin"
+                android:text="@string/create.event.tv.eventpicture"
+                android:textColor="@color/tw__composer_black"
+                android:textSize="@dimen/create_event_tv_textsize" />
+
+            <Button
+                android:id="@+id/btnSelectPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvPicture"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/create.event.button.selectpicture" />
+
+            <ImageView
+                android:id="@+id/ivEventPicture"
+                android:layout_width="@dimen/create.event.imageview.width"
+                android:layout_height="@dimen/create.event.imageview.height"
+                android:layout_below="@id/tvPicture"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/activity_big_margin"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnChangePicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivEventPicture"
+                android:layout_centerInParent="true"
+                android:text="@string/create.event.btn.change.picture"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+</LinearLayout>
