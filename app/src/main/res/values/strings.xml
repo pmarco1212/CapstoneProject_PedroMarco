@@ -150,5 +150,8 @@
     <string name="event.details.rate.event">Rate this Event:</string>
     <string name="event.details.rate.positive">Rate</string>
     <string name="event.details.rate.negative">Not now</string>
+    <string name="create.event.add.must.watch">You must finish watching the add to be able to create the event.</string>
+    <string name="ads.interstitial" translatable="false">ca-app-pub-5708390078145328/7552003142</string>
+    <string name="ads.rewarded" translatable="false">ca-app-pub-5708390078145328/1657512789</string>
 
 </resources>

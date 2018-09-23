@@ -54,6 +54,7 @@ import com.capstoneproject.pedromarco.eventapp.userdetails.ui.UserDetailsView;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.firebase.client.Firebase;
+import com.google.android.gms.ads.MobileAds;
 import com.twitter.sdk.android.core.DefaultLogger;
 import com.twitter.sdk.android.core.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -74,6 +75,7 @@ public class EventApp extends Application {
     public void onCreate() {
         super.onCreate();
         initFirebase();
+        initAdmob();
         initModules();
         initFacebook();
         initTwitter();
@@ -84,6 +86,13 @@ public class EventApp extends Application {
      */
     private void initFirebase() {
         Firebase.setAndroidContext(this);
+    }
+
+    /**
+     * Initialize Admob
+     */
+    private void initAdmob() {
+        MobileAds.initialize(this, getString(R.string.ADMOB_APP_ID));
     }
 
     /**

@@ -33,6 +33,8 @@ import com.capstoneproject.pedromarco.eventapp.main.tabs.tabnearby.ui.NearByFrag
 import com.capstoneproject.pedromarco.eventapp.main.tabs.tabsearch.ui.SearchFragment;
 import com.capstoneproject.pedromarco.eventapp.main.ui.adapters.ViewPagerAdapter;
 import com.capstoneproject.pedromarco.eventapp.settings.SettingsActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -245,7 +247,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
         task.addOnSuccessListener(this, new OnSuccessListener<LocationSettingsResponse>() {
             @Override
             public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
-                Log.d("Locationnn", "Location settings satisfied");
                 getActualLocation();
             }
         });
@@ -256,16 +257,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 int statusCode = ((ApiException) e).getStatusCode();
                 switch (statusCode) {
                     case CommonStatusCodes.RESOLUTION_REQUIRED:
-                        Log.w("Locationnn", "Location settings not satisfied, attempting resolution intent");
                         try {
                             ResolvableApiException resolvable = (ResolvableApiException) e;
                             resolvable.startResolutionForResult(activity, REQUEST_CODE_LOCATION_SETTINGS);
                         } catch (IntentSender.SendIntentException sendIntentException) {
-                            Log.e("Locationnn", "Unable to start resolution intent");
                         }
                         break;
                     case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-                        Log.w("Locationnn", "Location settings not satisfied and can't be changed");
                         break;
                 }
             }
@@ -278,7 +276,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onPause() { //Stop the location client
         if (client != null && mLocationCallback != null) {
-            Log.w("Locationnn", "Stopping location client");
             client.removeLocationUpdates(mLocationCallback);
             client = null;
             mLocationCallback = null;
@@ -336,13 +333,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
             @Override
             public void onLocationResult(LocationResult locationResult) {
                 List<Location> locationList = locationResult.getLocations();
-                Log.d("AAAAA", "Location obtained");
                 if (locationList.size() > 0) {
-                    Log.d("AAAAA", "Location GOOOOOD");
                     //The last location in the list is the newest
                     Location location = locationList.get(locationList.size() - 1);
                     if (location != null) {
-                        Log.d("AAAAA", "Location " + location.getLongitude() + "," + location.getLatitude());
                         CurrentLocation.setLatitude(location.getLatitude());
                         CurrentLocation.setLongitude(location.getLongitude());
                         //If location obtained, set the new request/callback to receive update only every 3 mins
@@ -359,7 +353,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
      */
     private void setNewLocationCallback() {
         //Cancel the previous request
-        client.removeLocationUpdates(mLocationCallback);
+        if(client!=null){
+            client.removeLocationUpdates(mLocationCallback);
+        }
         mLocationCallback = null;
         client = null;
         //Set the new request

@@ -7,7 +7,7 @@ android {
         applicationId "com.capstoneproject.pedromarco.eventapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 10
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -20,6 +20,7 @@ android {
             resValue "string", "GOOGLE_PLACES_API_KEY", project.property('GOOGLE_PLACES_API_KEY')
             resValue "string", "ALGOLIA_API_KEY", project.property('ALGOLIA_API_KEY')
             resValue "string", "ALGOLIA_APLICATION_ID", project.property('ALGOLIA_APLICATION_ID')
+            resValue "string", "ADMOB_APP_ID", project.property('ADMOB_APP_ID')
         }
 
         debug {
@@ -27,9 +28,11 @@ android {
             resValue "string", "GOOGLE_PLACES_API_KEY", project.property('GOOGLE_PLACES_API_KEY')
             resValue "string", "ALGOLIA_API_KEY", project.property('ALGOLIA_API_KEY')
             resValue "string", "ALGOLIA_APLICATION_ID", project.property('ALGOLIA_APLICATION_ID')
+            resValue "string", "ADMOB_APP_ID", project.property('ADMOB_APP_ID')
         }
 
     }
+    buildToolsVersion rootProject.ext.buildToolsVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileOptions {
         targetCompatibility 1.8
@@ -62,8 +65,8 @@ dependencies {
     implementation "com.firebase:firebase-client-android:$rootProject.ext.firebaseClientVersion"
     implementation "com.google.firebase:firebase-database:$rootProject.ext.firebaseVersion"
     implementation "com.google.firebase:firebase-auth:$rootProject.ext.firebaseVersion"
-    implementation "com.google.android.gms:play-services:$rootProject.ext.googlePlacesVersion"
-    implementation "com.google.android.gms:play-services-places:$rootProject.ext.googlePlacesVersion"
+    implementation "com.google.android.gms:play-services:$rootProject.ext.googleServicesVersion"
+    implementation "com.google.android.gms:play-services-places:$rootProject.ext.googleServicesVersion"
     implementation "com.algolia:algoliasearch-android:$rootProject.ext.algoliaVersion"
 
     implementation("com.twitter.sdk.android:twitter:$rootProject.ext.twitterVersion") {
@@ -71,4 +74,6 @@ dependencies {
     }
 
     implementation "com.theartofdev.edmodo:android-image-cropper:$rootProject.ext.imageCropperLibraryVersion"
+
+    implementation "com.google.android.gms:play-services-ads:$rootProject.ext.googleServicesVersion"
 }

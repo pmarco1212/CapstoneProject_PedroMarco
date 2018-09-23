@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -36,6 +37,8 @@ import com.capstoneproject.pedromarco.eventapp.eventdetails.EventDetailsPresente
 import com.capstoneproject.pedromarco.eventapp.lib.GlideImageLoader;
 import com.capstoneproject.pedromarco.eventapp.notifications.NotificationsScheduler;
 import com.capstoneproject.pedromarco.eventapp.userdetails.ui.UserDetailsActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -105,7 +108,7 @@ public class EventDetailsActivity extends AppCompatActivity implements EventDeta
     Event event;
 
     public static final String EVENT_KEY = "selectedEvent";
-
+    InterstitialAd mInterstitialAd;
     /**
      * Start the presenter, and set up the dagger injection and the necessary UI elements
      * Cehck if the evnet has currently started, and get all details fot he event
@@ -123,6 +126,10 @@ public class EventDetailsActivity extends AppCompatActivity implements EventDeta
         checkIfEventHasStarted();
         presenter.onCreate();
         presenter.getEventDetails(event.getId());
+        //Load the add to be sown when the first click event happened
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.ads_interstitial));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
     /**
@@ -230,6 +237,10 @@ public class EventDetailsActivity extends AppCompatActivity implements EventDeta
      */
     @OnClick({R.id.btnAssist, R.id.btnImHere, R.id.btnSendComment, R.id.floatingButtonFav, R.id.layoutCreator, R.id.location_llayout})
     public void onViewClicked(View view) {
+        //Displays the add if its loaded after the first click of the activity.
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
         switch (view.getId()) {
             case R.id.btnAssist:
                 presenter.toogleAssiting(event.getId());

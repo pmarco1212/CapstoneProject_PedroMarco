@@ -47,24 +47,20 @@ public class NewUserRepositoryImpl implements NewUserRespository {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getChildrenCount() > 0) { //the username is already taken
                             post(NewUserEvent.onUsernameAlreadyInUse);
-                            Log.d("REPOSITORY", "errrrr Username already in use");
                         } else { //The username is not taken
                             //Get an ID fro the event and pciture, and try to upload the picture to cloudinary
                             final String userID = firebaseAPI.getUserUID();
-                            Log.d("Uploadingg", profilepictureURL);
                             imageStorage.upload(new File(profilepictureURL), userID, new ImageStorageFinishedListener() {
                                 @Override
                                 public void onSuccess() {
                                     final String url = imageStorage.getImageUrl(userID);
                                     firebaseAPI.updateUser(new User(userID, username, firstname, surname, description, url, 0, 0, 0, 0, null, null, null));
                                     post(NewUserEvent.onUserCreatedSucess);
-                                    Log.d("REPOSITORY", "Username not in use, user added");
                                 }
 
                                 @Override
                                 public void onError(String error) {
                                     post(NewUserEvent.onImageUploadError);
-                                    Log.e("Cloudinary", error);
                                 }
                             });
                         }

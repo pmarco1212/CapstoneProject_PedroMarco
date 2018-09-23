@@ -25,6 +25,11 @@ import com.capstoneproject.pedromarco.eventapp.R;
 import com.capstoneproject.pedromarco.eventapp.createevent.CreateEventPresenter;
 import com.capstoneproject.pedromarco.eventapp.domain.Util;
 import com.capstoneproject.pedromarco.eventapp.lib.GlideImageLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
@@ -44,7 +49,7 @@ import butterknife.OnClick;
 /**
  * Activity handing all the UI of the event creation
  */
-public class CreateEventActivity extends AppCompatActivity implements CreateEventView {
+public class CreateEventActivity extends AppCompatActivity implements CreateEventView, RewardedVideoAdListener {
     @Bind(R.id.etName)
     EditText etName;
     @Bind(R.id.etDescription)
@@ -77,7 +82,8 @@ public class CreateEventActivity extends AppCompatActivity implements CreateEven
     private double latitude;
     private double longitude;
     private String picturePath;
-
+    private RewardedVideoAd mRewardedVideoAd;
+    private Boolean addFinishedCorrectly;
     /**
      * Start the presenter, and set up the dagger injection and the necessary UI elements
      *
@@ -93,6 +99,22 @@ public class CreateEventActivity extends AppCompatActivity implements CreateEven
         setUpLocationPicker();
         picturePath = "";
         presenter.onCreate();
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
+        loadRewardedVideoAd();
+        addFinishedCorrectly=false;
+    }
+
+    @Override
+    protected void onPause() {
+        mRewardedVideoAd.pause(this);
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        mRewardedVideoAd.resume(this);
+        super.onResume();
     }
 
     /**
@@ -190,6 +212,7 @@ public class CreateEventActivity extends AppCompatActivity implements CreateEven
      */
     @Override
     protected void onDestroy() {
+        mRewardedVideoAd.destroy(this);
         presenter.onDestroy();
         super.onDestroy();
     }
@@ -216,8 +239,12 @@ public class CreateEventActivity extends AppCompatActivity implements CreateEven
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_create_event) {
-            item.setEnabled(false);
-            createEvent();
+            if(!addFinishedCorrectly&&mRewardedVideoAd.isLoaded()) { //If the add is loaded and have not been seen already
+                mRewardedVideoAd.show();
+            }else { //IF the add has already been seen, try ot create the event
+                item.setEnabled(false);
+                createEvent();
+            }
         }
         return true;
     }
@@ -368,5 +395,49 @@ public class CreateEventActivity extends AppCompatActivity implements CreateEven
     public void hideProgress() {
         layoutForm.setVisibility(View.VISIBLE);
         loginProgress.setVisibility(View.GONE);
+    }
+
+
+    private void loadRewardedVideoAd(){
+        mRewardedVideoAd.loadAd(getString(R.string.ads_rewarded),
+                new AdRequest.Builder().build());
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        if(!addFinishedCorrectly) {
+            loadRewardedVideoAd(); //load the add again and shows toast add must finish
+            Toast.makeText(this, R.string.create_event_add_must_watch, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+        addFinishedCorrectly=true; //Allows event creation
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+
     }
 }

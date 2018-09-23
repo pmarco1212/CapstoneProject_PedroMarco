@@ -45,7 +45,6 @@ public class CommentListRecyclerviewAdapter extends RecyclerView.Adapter<Comment
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Comment comment = comments.get(position);
         holder.tvComment.setText(comment.getUsername() + ": " + comment.getComment());
-        Log.d("Loading ", "" + comment.getPictureURL());
         GlideImageLoader.loadWithContextSmall(holder.ivProfilePic, comment.getPictureURL(), context);
     }
 

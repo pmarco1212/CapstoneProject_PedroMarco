@@ -48,7 +48,6 @@ public class NotificationsScheduler {
         Date currentDate = new Date();
 
         long milisecondsToDate = eventDate.getTime() - currentDate.getTime();
-        Log.d("JOB to SCHEDULED ", "date " + eventDateString + " miliseconds " + milisecondsToDate + "current " + currentDate.getTime() + " next: " + eventDate.getTime());
         scheduleJob(context, milisecondsToDate, event.getName());
     }
 
@@ -91,8 +90,6 @@ public class NotificationsScheduler {
         extras.putString(EVENT_NAME, eventName);
         builder.setExtras(extras);
         jobScheduler.schedule(builder.build());
-
-        Log.d("JOB SCHEDULED ", "with id->" + id + " will run in" + minimunLatency / 86400000 + " days.");
     }
 
     /**
@@ -107,7 +104,6 @@ public class NotificationsScheduler {
             String eventName = params.getExtras().getString(EVENT_NAME);
             NotificationCompat.Builder mBuilder =
                     new NotificationCompat.Builder(this, "EventApp")
-                            //TODO set notification icon and text
                             .setContentTitle(eventName)
                             .setContentText("You have an event to assist today!!");
 

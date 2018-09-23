@@ -150,7 +150,6 @@ public class UserDetailsActivity extends AppCompatActivity implements UserDetail
         tvNumberAssistedEvents.setText(user.getNumEventsAssisted().toString());
         tvNumberCreatedEvents.setText(user.getNumEventCreated().toString());
         rbRating.setRating(user.getAvgRating());
-        Log.d("AAAAAAAAAAAAAA", "" + user.getProfilePhotoURL());
         GlideImageLoader.loadWithContext(ivUserImage, user.getProfilePhotoURL(), this);
     }
 

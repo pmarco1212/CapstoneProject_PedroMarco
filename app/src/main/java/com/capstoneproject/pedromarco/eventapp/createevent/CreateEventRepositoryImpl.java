@@ -56,7 +56,6 @@ public class CreateEventRepositoryImpl implements CreateEventRepository {
                             if (!picturePath.isEmpty()) {
                                 //Get an ID fro the event and pciture, and try to upload the picture to cloudinary
                                 final String eventID = firebaseAPI.create();
-                                Log.d("Uploadingg", picturePath);
                                 imageStorage.upload(new File(picturePath), eventID, new ImageStorageFinishedListener() {
                                     @Override
                                     public void onSuccess() {
@@ -77,11 +76,9 @@ public class CreateEventRepositoryImpl implements CreateEventRepository {
                                                         updateUserEventsCreated(user);
                                                         post(CreateEventEvent.onEventCreatedSuccess);
                                                     } else { //there was an error while adding to algolia
-                                                        Log.e("CREATE EVENT REPOSITORY", "Error while adding event to algolia");
                                                         post(CreateEventEvent.onEventCreatedError);
                                                     }
                                                 } else {
-                                                    Log.e("CREATE EVENT REPOSITORY", "Username not found > " + firebaseAPI.getUserUID());
                                                     post(CreateEventEvent.onEventCreatedError);
                                                 }
                                             }
@@ -95,7 +92,6 @@ public class CreateEventRepositoryImpl implements CreateEventRepository {
 
                                     @Override
                                     public void onError(String error) {
-                                        Log.e("ERRORRR", error);
                                         post(CreateEventEvent.onPictureUploadError);
                                     }
                                 });

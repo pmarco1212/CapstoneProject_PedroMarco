@@ -42,7 +42,6 @@ public class SearchRepositoryImpl implements SearchRepository {
             public void requestCompleted(LinkedHashMap<String, Event> searchResult) {
                 if (searchResult != null) {
                     if (!searchResult.isEmpty()) {
-                        Log.d("AAAAAA", "" + searchResult.size());
                         post(SearchQueryEvent.onSucefullQuery, new ArrayList<Event>(searchResult.values()));
                     } else {
                         post(SearchQueryEvent.onNoResultsQuery);

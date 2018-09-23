@@ -20,7 +20,6 @@ import com.google.firebase.database.DatabaseError;
  * Repository class, handling all the model-side data of the login
  */
 public class LoginRepositoryImpl implements LoginRepository {
-    private static final String TAG = "LoginRepositoryImpl";
     FirebaseAPI firebase;
     EventBus eventBus;
 
@@ -62,15 +61,12 @@ public class LoginRepositoryImpl implements LoginRepository {
      */
     @Override
     public void checkIfUserIsRegisteredInDatabase() {
-        Log.d(TAG, "Checking if user already registered - " + firebase.getUserUID());
         firebase.getSingleUserFromUID(firebase.getUserUID(), new FirebaseSingleValueEventListenerCallback() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getChildrenCount() > 0) { //the user is already registered
-                    Log.d(TAG, "User is registered");
                     post(LoginEvent.onUserIsRegistered);
                 } else { //The user is not registered yet
-                    Log.d(TAG, "User is not registered");
                     post(LoginEvent.onUserIsNotRegistered);
                 }
             }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">EventApp</string>
     <string name="login_etEmail_hint">Email</string>
     <string name="login_etPassword_hint">Contraseña</string>
     <string name="checkbox_remember_me">Recordarme</string>
@@ -115,4 +114,5 @@
     <string name="event.details.rate.negative">Ahora no</string>
     <string name="event.details.rate.positive">Valorar</string>
     <string name="event.details.rate.event">Valora este evento:</string>
+    <string name="create.event.add.must.watch">Debes terminar de ver el anuncion para crear el evento.</string>
 </resources>

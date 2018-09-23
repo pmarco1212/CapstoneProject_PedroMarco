@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinnerCategoryItems">
+    <string-array name="spinnerCategoryItems"
+        translatable="false">
         <item>Leisure</item>
         <item>Sports</item>
         <item>Culture</item>
         <item>Others</item>
     </string-array>
 
-    <string-array name="spinnerCategoryItemsSearch">
+    <string-array name="spinnerCategoryItemsSearch"
+        translatable="false">
         <item>Any</item>
         <item>Sports</item>
         <item>Leisure</item>
